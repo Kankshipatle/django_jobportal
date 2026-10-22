@@ -84,3 +84,13 @@ class MyApplicationsListView(LoginRequiredMixin, ListView):
         return Application.objects.filter(
             applicant=self.request.user
         ).select_related('job')
+
+class EmployerApplicationsListView(LoginRequiredMixin, ListView):
+    model = Application
+    template_name = 'employer_applications_list.html'
+    context_object_name = 'applications'
+
+    def get_queryset(self):
+        return Application.objects.filter(
+            job__posted_by=self.request.user
+        ).select_related('job', 'applicant')

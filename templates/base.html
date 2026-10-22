@@ -112,6 +112,7 @@
                 <a href="{% url 'job-create' %}">Post a Job</a>
                 <a href="{% url 'my-jobs' %}">My Jobs</a>
                 <a href="{% url 'my-applications' %}">My Applications</a>
+                <a href="{% url 'employer-applications' %}">Employer Applications</a>
                 <span>Hi, {{ user.username }}</span>
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
@@ -141,3 +142,4 @@
     </footer>
 </body>
 </html>
+<!-- Employer Link Added -->
