@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block title %}Employer Applications{% endblock %}
+
+{% block content %}
+    <h1>Employer Applications Dashboard</h1>
+    <p>View all applicants for your posted jobs.</p>
+
+    <ul>
+        {% for app in applications %}
+            <li>
+                <strong>Job:</strong> {{ app.job.title }} |
+                <strong>Applicant:</strong> {{ app.applicant.username }} |
+                <strong>Date:</strong> {{ app.date_applied }}
+            </li>
+        {% empty %}
+            <li>No applications received yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
